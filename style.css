@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(34, 206, 228);
+    font-family:'Arial';
+    background-image: url("https://media.istockphoto.com/photos/empty-green-casino-poker-table-cloth-with-spotlight-picture-id1092139474?k=20&m=1092139474&s=612x612&w=0&h=iWwvolq21sBzJZkqmigkdwNW6_cuQ1pQSNQmBE0a4V0=");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: "20%";
+    text-align: center;
+  }
+  p{
+    color: rgb(4, 0, 0);
+    font-family:'Arial';
+    font-size: 20px;
+    align-items: center;
+  }
+  button{
+    border-radius: 10px;
+    border-color: black;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+  }
+  #first-column{
+    display:flex;
+    white-space: nowrap;
+  }
