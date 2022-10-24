@@ -13,20 +13,9 @@ const bt7 = document.getElementById("block-7");
 const bt8 = document.getElementById("block-8");
 const bt9 = document.getElementById("block-9");
 const buttons = [bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9];
-/*
-const pa1=document.getElementById("para-1");
-const pa2=document.getElementById("para-2");
-const pa3=document.getElementById("para-3");
-const pa4=document.getElementById("para-4");
-const pa5=document.getElementById("para-5");
-const pa6=document.getElementById("para-6");
-const pa7=document.getElementById("para-7");
-const pa8=document.getElementById("para-8");
-const pa9=document.getElementById("para-9");
-*/
+const newgame=document.getElementById("newgame");
 const firplay = document.getElementById("firstplay");
 const secplay = document.getElementById("secondplay");
-
 const whosturn = document.getElementById("whosturn");
 
 firplay.addEventListener("click", function () {
@@ -56,7 +45,166 @@ function compplay() {
         playerplay();
         turn="player";
         showturn();
-    },2000);  
+    },500);  
+}
+
+function complogic(){
+    setTimeout(()=>{
+        let i;
+        let fl=0;
+        for (i=0;i<9;i++){
+            if (arr[i]===""){
+                arr[i]=comp;
+                render();
+                fl=1;
+                break;
+            } 
+        }
+        if (fl===0){
+            console.log("draw");
+            whosturn.innerHTML="DRAW";
+            setTimeout(()=>{resetgame()},3000);
+        }
+        else
+       { if (checkwin()!=0){
+            won(comp);
+        }
+        else{
+            turn="player";
+            showturn();
+            playerplay();
+        }}
+    },00);
+}
+function playerplay() {
+    bt1.addEventListener("click", function () {
+        if (turn == "player" && arr[0] == "") {
+            buttons[0].innerHTML = `<p style="font-size:30px">${player}</p>`;
+            arr[0] = player;
+            turn ="computer";
+            if (checkwin()!=0){
+                won(player);
+            }
+            else{
+                showturn();
+                complogic();
+            }
+        }
+    })
+    bt2.addEventListener("click", function () {
+        if (turn == "player" && arr[1] == "") {
+            buttons[1].innerHTML = `<p style="font-size:30px;font-weight:bold">${player}</p>`;
+            arr[1] = player;
+            turn ="computer";
+            if (checkwin()!=0){
+                won(player);
+            }
+            else{
+                showturn();
+                complogic();
+            }
+        }
+    })
+    bt3.addEventListener("click", function () {
+        if (turn == "player" && arr[2] == "") {
+            buttons[2].innerHTML = `<p style="font-size:30px">${player}</p>`;
+            arr[2] = player;
+            turn ="computer";
+            if (checkwin()!=0){
+                console.log("here1");
+                won(player);
+            }
+            else{
+                showturn();
+                complogic();
+            }
+        }
+    })
+    bt4.addEventListener("click", function () {
+        if (turn == "player" && arr[3] == "") {
+            buttons[3].innerHTML = `<p style="font-size:30px">${player}</p>`;
+            arr[3] = player;
+            turn ="computer";
+            if (checkwin()!=0){
+                won(player);
+            }
+            else{
+                showturn();
+                complogic();
+            }
+        }
+    })
+    bt5.addEventListener("click", function () {
+        if (turn == "player" && arr[4] == "") {
+            buttons[4].innerHTML = `<p style="font-size:30px">${player}</p>`;
+            arr[4] = player;
+            turn ="computer";
+            if (checkwin()!=0){
+                won(player);
+            }
+            else{
+                showturn();
+                complogic();
+            }
+        }
+    })
+    bt6.addEventListener("click", function () {
+        if (turn == "player" && arr[5] == "") {
+            buttons[5].innerHTML = `<p style="font-size:30px">${player}</p>`;
+            arr[5] = player;
+            turn ="computer";
+            if (checkwin()!=0){
+                won(player);
+            }
+            else{
+                showturn();
+                complogic();
+            }
+        }
+    })
+    bt7.addEventListener("click", function () {
+        if (turn == "player" && arr[6] == "") {
+            buttons[6].innerHTML = `<p style="font-size:30px">${player}</p>`;
+            arr[6] = player;
+            turn ="computer";
+            if (checkwin()!=0){
+                won(player);
+            }
+            else{
+                showturn();
+                complogic();
+            }
+        }
+    })
+    bt8.addEventListener("click", function () {
+        if (turn == "player" && arr[7] == "") {
+            buttons[7].innerHTML = `<p style="font-size:30px">${player}</p>`;
+            arr[7] = player;
+            turn ="computer";
+            if (checkwin()!=0){
+                won(player);
+            }
+            else{
+                showturn();
+                complogic();
+            }
+        }
+    })
+    bt9.addEventListener("click", function () {
+        if (turn == "player" && arr[8] == "") {
+            buttons[8].innerHTML = `<p style="font-size:30px">${player}</p>`;
+            arr[8] = player;
+            turn ="computer";
+            if (checkwin()!=0){
+                won(player);
+            }
+            else{
+                showturn();
+                complogic();
+            }
+        }
+    })
+
 }
 
 function showturn (){
@@ -64,10 +212,7 @@ function showturn (){
 }
 function render() {
     for (let i = 0; i < 9; i++) {
-        console.log(`button[${i}]`, "   ", buttons[i]);
-        if (arr[i] != "") {
-            buttons[i].innerHTML = `<p style="font-size:30px">${arr[i]}</p>`;
-        }
+        buttons[i].innerHTML = `<p style="font-size:30px">${arr[i]}</p>`;
 
     }
 }
@@ -76,123 +221,6 @@ function getRandom() {
     rr = Math.floor(rr);
     return rr;
 }
-
-function complogic(){
-    setTimeout(()=>{console.log("how abt that")},2000)
-    //alert("computer turn ");
-}
-function playerplay() {
-    bt1.addEventListener("click", function () {
-        if (turn == "player" && arr[0] == "") {
-            buttons[0].innerHTML = `<p style="font-size:30px">${player}</p>`;
-            arr[0] = player;
-            turn ="computer";
-            if (checkwin()){
-                won(player);
-            }
-            showturn();
-            complogic();
-        }
-    })
-    bt2.addEventListener("click", function () {
-        if (turn == "player" && arr[1] == "") {
-            buttons[1].innerHTML = `<p style="font-size:30px">${player}</p>`;
-            arr[1] = player;
-            turn ="computer";
-            if (checkwin()){
-                won(player);
-            }
-            showturn();
-            complogic();
-        }
-    })
-    bt3.addEventListener("click", function () {
-        if (turn == "player" && arr[2] == "") {
-            buttons[2].innerHTML = `<p style="font-size:30px">${player}</p>`;
-            arr[2] = player;
-            turn ="computer";
-            if (checkwin()){
-                won(player);
-            }
-            showturn();
-            complogic();
-        }
-    })
-    bt4.addEventListener("click", function () {
-        if (turn == "player" && arr[3] == "") {
-            buttons[3].innerHTML = `<p style="font-size:30px">${player}</p>`;
-            arr[3] = player;
-            turn ="computer";
-            if (checkwin()){
-                won(player);
-            }
-            showturn();
-            complogic();
-        }
-    })
-    bt5.addEventListener("click", function () {
-        if (turn == "player" && arr[4] == "") {
-            buttons[4].innerHTML = `<p style="font-size:30px">${player}</p>`;
-            arr[4] = player;
-            turn ="computer";
-            if (checkwin()){
-                won(player);
-            }
-            showturn();
-            complogic();
-        }
-    })
-    bt6.addEventListener("click", function () {
-        if (turn == "player" && arr[5] == "") {
-            buttons[5].innerHTML = `<p style="font-size:30px">${player}</p>`;
-            arr[5] = player;
-            turn ="computer";
-            if (checkwin()){
-                won(player);
-            }
-            showturn();
-            complogic();
-        }
-    })
-    bt7.addEventListener("click", function () {
-        if (turn == "player" && arr[6] == "") {
-            buttons[6].innerHTML = `<p style="font-size:30px">${player}</p>`;
-            arr[6] = player;
-            turn ="computer";
-            if (checkwin()){
-                won(player);
-            }
-            showturn();
-            complogic();
-        }
-    })
-    bt8.addEventListener("click", function () {
-        if (turn == "player" && arr[7] == "") {
-            buttons[7].innerHTML = `<p style="font-size:30px">${player}</p>`;
-            arr[7] = player;
-            turn ="computer";
-            if (checkwin()){
-                won(player);
-            }
-            showturn();
-            complogic();
-        }
-    })
-    bt9.addEventListener("click", function () {
-        if (turn == "player" && arr[8] == "") {
-            buttons[8].innerHTML = `<p style="font-size:30px">${player}</p>`;
-            arr[9] = player;
-            turn ="computer";
-            if (checkwin()){
-                won(player);
-            }
-            showturn();
-            complogic();
-        }
-    })
-}
-
-
 function checkwin() {
     let win;
     let k;
@@ -237,14 +265,24 @@ function checkwin() {
 
     return 0;
 }
-
 function won(cc) {
-    if (cc = comp) { whosturn.innerHTML = `computer won`; }
+    console.log("you won");
+    if (cc === comp) { whosturn.innerHTML = `computer won`; }
     else { whosturn.innerHTML = `you won`;}
+    setInterval(()=>{
+        resetgame();
+    },5000);
+}
+newgame.addEventListener("click",function(){
+    resetgame();
+})
+function resetgame(){
     arr=gg;
     render();
     player="";
     comp="";
+    turn="";
+    whosturn.innerHTML ="";
 }
 
 
